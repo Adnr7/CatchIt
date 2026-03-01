@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CatchIt — AI Safe Browsing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="popup-container" id="popup">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-brand">
+        <div class="header-logo">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="13" stroke="url(#logoGrad)" stroke-width="2" />
+            <path d="M9 14.5L12.5 18L19 11" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="28" y2="28">
+                <stop stop-color="#00e676" />
+                <stop offset="1" stop-color="#76ff03" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="header-text">
+          <h1>CatchIt</h1>
+          <span class="header-tagline">AI Safe Browsing</span>
+        </div>
+      </div>
+      <div class="header-status" id="headerStatus">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Analyzing…</span>
+      </div>
+    </header>
+
+    <!-- Loading State -->
+    <div class="loading-state" id="loadingState">
+      <div class="loading-spinner"></div>
+      <p>Analyzing page…</p>
+    </div>
+
+    <!-- Results (hidden initially) -->
+    <main class="popup-results" id="resultsSection" style="display: none;">
+
+      <!-- Risk Score Ring -->
+      <section class="score-section">
+        <div class="score-ring-container">
+          <svg class="score-ring" viewBox="0 0 120 120">
+            <circle class="score-ring-bg" cx="60" cy="60" r="52" />
+            <circle class="score-ring-fill" id="scoreRingFill" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="score-value" id="scoreValue">0</div>
+          <div class="score-label">Risk Score</div>
+        </div>
+        <div class="risk-badge" id="riskBadge">
+          <span class="risk-badge-dot" id="riskBadgeDot"></span>
+          <span id="riskBadgeText">Analyzing</span>
+        </div>
+      </section>
+
+      <!-- Site Info -->
+      <section class="info-section">
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-icon">🌐</span>
+            <div class="info-detail">
+              <span class="info-label">Domain</span>
+              <span class="info-value" id="siteDomain">—</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon" id="sslIcon">🔒</span>
+            <div class="info-detail">
+              <span class="info-label">Connection</span>
+              <span class="info-value" id="sslStatus">—</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">🕐</span>
+            <div class="info-detail">
+              <span class="info-label">Scanned</span>
+              <span class="info-value" id="scanTime">—</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signals / Reasons -->
+      <section class="signals-section" id="signalsSection" style="display: none;">
+        <h3 class="section-title">
+          <span class="section-icon">🔍</span>
+          Detected Signals
+        </h3>
+        <ul class="signals-list" id="signalsList"></ul>
+      </section>
+
+      <!-- Sensitive Fields -->
+      <section class="fields-section" id="fieldsSection" style="display: none;">
+        <h3 class="section-title">
+          <span class="section-icon">🔑</span>
+          Sensitive Fields on Page
+        </h3>
+        <ul class="fields-list" id="fieldsList"></ul>
+      </section>
+
+      <!-- Recommendation -->
+      <section class="recommendation-section">
+        <div class="recommendation-card" id="recommendationCard">
+          <span class="recommendation-icon" id="recommendationIcon">💡</span>
+          <p id="recommendationText">Loading recommendation…</p>
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="actions-section" id="actionsSection" style="display: none;">
+        <button class="action-btn action-btn-back" id="btnGoBack">
+          ← Go Back to Safety
+        </button>
+      </section>
+    </main>
+
+    <!-- Error State -->
+    <div class="error-state" id="errorState" style="display: none;">
+      <div class="error-icon">⚙️</div>
+      <p>Unable to analyze this page.</p>
+      <span class="error-hint">This may be a browser internal page or restricted URL.</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <span>CatchIt v1.0</span>
+      <span class="footer-dot">·</span>
+      <span>AI-Powered Protection</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

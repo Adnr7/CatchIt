@@ -1,0 +1,278 @@
+/* ═══════════════════════════════════════════
+   CatchIt — Content Script Styles
+   Warning banners, overlays, and dialogs
+   injected into webpages
+   ═══════════════════════════════════════════ */
+
+/* ─── Warning Banner ─── */
+
+#catchit-warning-banner {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2147483647 !important;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  animation: catchitSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box !important;
+}
+
+#catchit-warning-banner.catchit-banner-hide {
+  animation: catchitSlideUp 0.3s ease-in forwards !important;
+}
+
+.catchit-banner-inner {
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 20px !important;
+  gap: 14px !important;
+  min-height: 56px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25) !important;
+}
+
+.catchit-banner-inner.catchit-warning {
+  background: linear-gradient(135deg, #ffd600, #f9a825) !important;
+  color: #1a1a1a !important;
+  border-bottom: 3px solid #f57f17 !important;
+}
+
+.catchit-banner-inner.catchit-danger {
+  background: linear-gradient(135deg, #ff1744, #d50000) !important;
+  color: #fff !important;
+  border-bottom: 3px solid #b71c1c !important;
+}
+
+.catchit-banner-icon {
+  font-size: 28px !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
+}
+
+.catchit-banner-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.catchit-banner-title {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  margin-bottom: 2px !important;
+  letter-spacing: 0.01em !important;
+}
+
+.catchit-banner-subtitle {
+  font-size: 13px !important;
+  opacity: 0.92 !important;
+  line-height: 1.4 !important;
+}
+
+.catchit-banner-reasons {
+  margin: 6px 0 0 0 !important;
+  padding: 0 0 0 18px !important;
+  font-size: 12px !important;
+  opacity: 0.88 !important;
+  list-style: disc !important;
+}
+
+.catchit-banner-reasons li {
+  margin-bottom: 1px !important;
+}
+
+.catchit-banner-actions {
+  display: flex !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+}
+
+.catchit-btn-back {
+  padding: 8px 16px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1a1a1a !important;
+  transition: transform 0.15s, box-shadow 0.15s !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.catchit-btn-back:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.catchit-btn-dismiss {
+  width: 32px !important;
+  height: 32px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: inherit !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background 0.15s !important;
+}
+
+.catchit-btn-dismiss:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ─── Form Warning Overlay ─── */
+
+.catchit-overlay-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(4px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 2147483647 !important;
+  animation: catchitFadeIn 0.25s ease !important;
+}
+
+.catchit-overlay-dialog {
+  background: #0a1a0a !important;
+  border: 1px solid rgba(0, 230, 118, 0.15) !important;
+  border-radius: 16px !important;
+  padding: 32px !important;
+  max-width: 440px !important;
+  width: 90% !important;
+  text-align: center !important;
+  color: #e0e0e0 !important;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+  animation: catchitScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.catchit-overlay-icon {
+  font-size: 48px !important;
+  margin-bottom: 12px !important;
+}
+
+.catchit-overlay-dialog h2 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin: 0 0 12px !important;
+  color: #fff !important;
+}
+
+.catchit-overlay-dialog p {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  margin: 0 0 12px !important;
+  color: #81c784 !important;
+}
+
+.catchit-overlay-fields {
+  text-align: left !important;
+  padding: 0 0 0 20px !important;
+  margin: 12px 0 !important;
+  font-size: 13px !important;
+  color: #ffd600 !important;
+  list-style: none !important;
+}
+
+.catchit-overlay-fields li {
+  margin-bottom: 6px !important;
+}
+
+.catchit-overlay-question {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  margin-top: 16px !important;
+}
+
+.catchit-overlay-actions {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  margin-top: 20px !important;
+}
+
+.catchit-overlay-cancel {
+  padding: 10px 24px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  background: linear-gradient(135deg, #00e676, #00c853) !important;
+  color: #fff !important;
+  transition: transform 0.15s, box-shadow 0.15s !important;
+}
+
+.catchit-overlay-cancel:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 16px rgba(0, 230, 118, 0.4) !important;
+}
+
+.catchit-overlay-proceed {
+  padding: 10px 24px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  color: #999 !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+
+.catchit-overlay-proceed:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ccc !important;
+}
+
+/* ─── Animations ─── */
+
+@keyframes catchitSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes catchitSlideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes catchitFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes catchitScaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
