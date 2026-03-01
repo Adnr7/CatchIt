@@ -164,11 +164,6 @@ CatchIt is **100% local**. No browsing data, page content, or analysis results a
 - Elderly users vulnerable to scams
 - Remote workers and small business employees
 
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
